@@ -45,12 +45,16 @@ class HomePage extends StatelessWidget {
                     children: [
                       // Info Icon
                       Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(shape: BoxShape.circle),
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFB3D9F2),
+                          shape: BoxShape.circle,
+                        ),
                         child: Image.asset(
                           'assets/icons/info_ic.png',
                           fit: BoxFit.contain,
+                          scale: 1.5,
                         ),
                       ),
                       // Logo Text
@@ -59,7 +63,7 @@ class HomePage extends StatelessWidget {
                           Text(
                             'Imrithys',
                             style: TextStyle(
-                              color: Colors.blue.shade600,
+                              color: const Color(0xFF65A6F1),
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
@@ -67,7 +71,7 @@ class HomePage extends StatelessWidget {
                           Text(
                             'Rhymes',
                             style: TextStyle(
-                              color: Colors.blue.shade600,
+                              color: const Color(0xFF65A6F1),
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
@@ -76,8 +80,8 @@ class HomePage extends StatelessWidget {
                       ),
                       // Profile Photo
                       Container(
-                        width: 50,
-                        height: 50,
+                        width: 55,
+                        height: 55,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
@@ -87,7 +91,7 @@ class HomePage extends StatelessWidget {
                         ),
                         child: ClipOval(
                           child: Image.asset(
-                            'assets/images/person.png',
+                            'assets/images/profil.jpg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -101,11 +105,14 @@ class HomePage extends StatelessWidget {
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Colors.blue.shade400, Colors.blue.shade600],
+                      colors: [
+                        const Color(0xFF65A6F1),
+                        const Color(0xFF65A6F1),
+                      ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
-                    borderRadius: BorderRadius.circular(40),
+                    borderRadius: BorderRadius.circular(32),
                   ),
                   child: Row(
                     children: [
@@ -117,7 +124,7 @@ class HomePage extends StatelessWidget {
                               'Assalamualaikum, pidaa',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 20,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -126,7 +133,7 @@ class HomePage extends StatelessWidget {
                               'Siap mendalukan\nbait hari ini?',
                               style: TextStyle(
                                 color: Colors.white.withValues(alpha: 0.9),
-                                fontSize: 14,
+                                fontSize: 13,
                               ),
                             ),
                           ],
@@ -135,8 +142,8 @@ class HomePage extends StatelessWidget {
                       const SizedBox(width: 16),
                       // Character placeholder
                       Container(
-                        width: 80,
-                        height: 80,
+                        width: 90,
+                        height: 100,
                         decoration: BoxDecoration(
                           color: Colors.white.withValues(alpha: 0.3),
                           borderRadius: BorderRadius.circular(16),
@@ -160,7 +167,7 @@ class HomePage extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
-                    borderRadius: BorderRadius.circular(24),
+                    borderRadius: BorderRadius.circular(32),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -184,18 +191,18 @@ class HomePage extends StatelessWidget {
                       const SizedBox(height: 16),
                       // Progress Bar
                       Container(
-                        height: 24,
+                        height: 28,
                         decoration: BoxDecoration(
                           color: Colors.white.withValues(alpha: 0.3),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(14),
                         ),
                         child: Stack(
                           children: [
                             Container(
                               width: 50,
                               decoration: BoxDecoration(
-                                color: Colors.red.shade600,
-                                borderRadius: BorderRadius.circular(12),
+                                color: const Color(0xFFE74C3C),
+                                borderRadius: BorderRadius.circular(14),
                               ),
                             ),
                             Positioned(
@@ -205,15 +212,15 @@ class HomePage extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Container(
-                                    width: 20,
+                                    width: 15,
                                     decoration: BoxDecoration(
-                                      color: Colors.orange.shade400,
-                                      borderRadius: BorderRadius.circular(12),
+                                      color: const Color(0xFFF39C12),
+                                      borderRadius: BorderRadius.circular(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 10,
-                                    height: 24,
+                                    width: 16,
+                                    height: 28,
                                     child: Image.asset(
                                       'assets/images/fire.png',
                                       fit: BoxFit.contain,
@@ -324,21 +331,21 @@ class ActivityCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: backgroundColor,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(32),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(imagePath, width: 48, height: 48, fit: BoxFit.contain),
-          const SizedBox(height: 12),
+          Image.asset(imagePath, width: 56, height: 56, fit: BoxFit.contain),
+          const SizedBox(height: 16),
           Text(
             title,
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
-              height: 1.3,
+              height: 1.2,
             ),
           ),
         ],
