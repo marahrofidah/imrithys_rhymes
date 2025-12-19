@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
+  ImageCache().maximumSize = 100 * 1024 * 1024; // 100 MB
 }
 
 class MyApp extends StatelessWidget {
@@ -46,14 +47,10 @@ class HomePage extends StatelessWidget {
                       Container(
                         width: 50,
                         height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.blue.shade200,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.info,
-                          color: Colors.blue.shade700,
-                          size: 28,
+                        decoration: BoxDecoration(shape: BoxShape.circle),
+                        child: Image.asset(
+                          'assets/icons/info_ic.png',
+                          fit: BoxFit.contain,
                         ),
                       ),
                       // Logo Text
@@ -89,13 +86,9 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         child: ClipOval(
-                          child: Container(
-                            color: Colors.grey.shade300,
-                            child: Icon(
-                              Icons.person,
-                              color: Colors.grey.shade600,
-                              size: 28,
-                            ),
+                          child: Image.asset(
+                            'assets/images/person.png',
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -112,7 +105,7 @@ class HomePage extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
-                    borderRadius: BorderRadius.circular(24),
+                    borderRadius: BorderRadius.circular(40),
                   ),
                   child: Row(
                     children: [
@@ -148,10 +141,9 @@ class HomePage extends StatelessWidget {
                           color: Colors.white.withValues(alpha: 0.3),
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: Icon(
-                          Icons.person,
-                          color: Colors.white,
-                          size: 48,
+                        child: Image.asset(
+                          'assets/images/person.png',
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ],
@@ -210,12 +202,24 @@ class HomePage extends StatelessWidget {
                               left: 50,
                               top: 0,
                               bottom: 0,
-                              child: Container(
-                                width: 30,
-                                decoration: BoxDecoration(
-                                  color: Colors.orange.shade400,
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                      color: Colors.orange.shade400,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                    height: 24,
+                                    child: Image.asset(
+                                      'assets/images/fire.png',
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             Center(
@@ -256,25 +260,25 @@ class HomePage extends StatelessWidget {
                     // Dengarkan Syair Card
                     ActivityCard(
                       backgroundColor: Colors.deepPurple.shade400,
-                      icon: Icons.headphones,
+                      imagePath: 'assets/images/earphone.png',
                       title: 'Dengarkan\nSyair',
                     ),
                     // Setor Hafalan Card
                     ActivityCard(
                       backgroundColor: Colors.pink.shade400,
-                      icon: Icons.person_pin,
+                      imagePath: 'assets/images/setor.png',
                       title: 'Setor\nHafalan',
                     ),
                     // Kerjakan Quiz Card
                     ActivityCard(
                       backgroundColor: Colors.cyan.shade400,
-                      icon: Icons.schedule,
+                      imagePath: 'assets/images/quiz.png',
                       title: 'Kerjakan\nQuiz',
                     ),
                     // Pelajari Kitab Imrithi Card
                     ActivityCard(
                       backgroundColor: Colors.amber.shade400,
-                      icon: Icons.menu_book,
+                      imagePath: 'assets/images/kitab.png',
                       title: 'Pelajari\nKitab Imrithi',
                     ),
                   ],
@@ -305,13 +309,13 @@ class HomePage extends StatelessWidget {
 
 class ActivityCard extends StatelessWidget {
   final Color backgroundColor;
-  final IconData icon;
+  final String imagePath;
   final String title;
 
   const ActivityCard({
     super.key,
     required this.backgroundColor,
-    required this.icon,
+    required this.imagePath,
     required this.title,
   });
 
@@ -325,7 +329,7 @@ class ActivityCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.white, size: 48),
+          Image.asset(imagePath, width: 48, height: 48, fit: BoxFit.contain),
           const SizedBox(height: 12),
           Text(
             title,
