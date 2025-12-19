@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
 
                 // Top Bar with Logo, Title, and Profile
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 24.0),
+                  padding: const EdgeInsets.only(bottom: 20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
                         width: 60,
                         height: 60,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFB3D9F2),
+                          color: const Color(0xFFA3C7F0),
                           shape: BoxShape.circle,
                         ),
                         child: Image.asset(
@@ -102,7 +102,7 @@ class HomePage extends StatelessWidget {
                 // Greeting Card
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(26),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(50),
                   ),
                   child: Row(
                     children: [
@@ -124,16 +124,16 @@ class HomePage extends StatelessWidget {
                               'Assalamualaikum, pidaa',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 18,
+                                fontSize: 22,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              'Siap mendalukan\nbait hari ini?',
+                              'Siap menaklukan bait hari ini?',
                               style: TextStyle(
                                 color: Colors.white.withValues(alpha: 0.9),
-                                fontSize: 13,
+                                fontSize: 16,
                               ),
                             ),
                           ],
@@ -142,12 +142,8 @@ class HomePage extends StatelessWidget {
                       const SizedBox(width: 16),
                       // Character placeholder
                       Container(
-                        width: 90,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.3),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
+                        width: 100,
+                        height: 110,
                         child: Image.asset(
                           'assets/images/person.png',
                           fit: BoxFit.cover,
@@ -156,18 +152,21 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 18),
                 // Focus Track Card
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(26),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Colors.orange.shade400, Colors.orange.shade600],
+                      colors: [
+                        const Color(0xFFFFA231),
+                        const Color(0xFFFFA231),
+                      ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(50),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,66 +175,75 @@ class HomePage extends StatelessWidget {
                         'Focus Track',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Stay on track dengan Quiz harian + Hafalan Gogal senali, baik ke hari 2',
+                        'Stay on track dengan Quiz harian + Hafalan Gagal sekali, baik ke hari awal 👀',
                         style: TextStyle(
                           color: Colors.white.withValues(alpha: 0.9),
-                          fontSize: 13,
+                          fontSize: 16,
                         ),
                       ),
                       const SizedBox(height: 16),
-                      // Progress Bar
+                      // Progress Bar with Fire Icon
                       Container(
-                        height: 28,
+                        height: 42,
                         decoration: BoxDecoration(
                           color: Colors.white.withValues(alpha: 0.3),
-                          borderRadius: BorderRadius.circular(14),
+                          borderRadius: BorderRadius.circular(21),
                         ),
                         child: Stack(
                           children: [
-                            Container(
-                              width: 50,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFE74C3C),
-                                borderRadius: BorderRadius.circular(14),
+                            // Red progress fill
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(21),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                widthFactor: 0.5,
+                                child: Container(
+                                  color: const Color(0xFFE74C3C),
+                                ),
                               ),
                             ),
+                            // Orange progress fill
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(21),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                widthFactor: 0.7,
+                                child: Container(
+                                  color: const Color(0xFFF39C12),
+                                ),
+                              ),
+                            ),
+                            // Fire image at the end
                             Positioned(
-                              left: 50,
-                              top: 0,
-                              bottom: 0,
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 15,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFFF39C12),
-                                      borderRadius: BorderRadius.circular(14),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 16,
-                                    height: 28,
-                                    child: Image.asset(
-                                      'assets/images/fire.png',
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ],
+                              right: 6,
+                              top: -8,
+                              bottom: -8,
+                              child: SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: Image.asset(
+                                  'assets/images/api.png',
+                                  fit: BoxFit.contain,
+                                ),
                               ),
                             ),
+                            // Text centered
                             Center(
-                              child: Text(
-                                '50/254',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 60.0),
+                                child: Text(
+                                  '50/254',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
@@ -245,7 +253,7 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 32),
+                const SizedBox(height: 18),
                 // Rhymes Activity Title
                 const Text(
                   'Rhymes Activity',
@@ -255,14 +263,15 @@ class HomePage extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 18),
                 // Activity Cards Grid
                 GridView.count(
                   crossAxisCount: 2,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: 1.0,
                   children: [
                     // Dengarkan Syair Card
                     ActivityCard(
@@ -334,20 +343,25 @@ class ActivityCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(32),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(imagePath, width: 56, height: 56, fit: BoxFit.contain),
-          const SizedBox(height: 16),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              height: 1.2,
+          const SizedBox(height: 20),
+          Image.asset(imagePath, width: 80, height: 80, fit: BoxFit.contain),
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                height: 1.1,
+              ),
             ),
           ),
+          const SizedBox(height: 20),
         ],
       ),
     );
