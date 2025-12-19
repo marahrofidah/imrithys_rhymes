@@ -30,18 +30,12 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Header Section
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 16.0),
-                  child: Text(
-                    'home',
-                    style: TextStyle(color: Colors.grey, fontSize: 14),
-                  ),
-                ),
+
                 // Top Bar with Logo, Title, and Profile
                 Padding(
                   padding: const EdgeInsets.only(bottom: 24.0),
