@@ -189,66 +189,59 @@ class HomePage extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       // Progress Bar with Fire Icon
-                      Container(
-                        height: 42,
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.3),
-                          borderRadius: BorderRadius.circular(21),
-                        ),
-                        child: Stack(
-                          children: [
-                            // Red progress fill
-                            ClipRRect(
+                      LayoutBuilder(
+                        builder: (context, constraints) {
+                          final progressPercent = 50 / 254;
+                          final progressWidth = constraints.maxWidth * progressPercent;
+                          
+                          return Container(
+                            height: 42,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.3),
                               borderRadius: BorderRadius.circular(21),
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                widthFactor: 0.5,
-                                child: Container(
-                                  color: const Color(0xFFE74C3C),
-                                ),
-                              ),
                             ),
-                            // Orange progress fill
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(21),
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                widthFactor: 0.7,
-                                child: Container(
-                                  color: const Color(0xFFF39C12),
-                                ),
-                              ),
-                            ),
-                            // Fire image at the end
-                            Positioned(
-                              right: 6,
-                              top: -8,
-                              bottom: -8,
-                              child: SizedBox(
-                                width: 100,
-                                height: 100,
-                                child: Image.asset(
-                                  'assets/images/api.png',
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                            // Text centered
-                            Center(
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 60.0),
-                                child: Text(
-                                  '50/254',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold,
+                            child: Stack(
+                              children: [
+                                // Progress fill
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(21),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    widthFactor: progressPercent,
+                                    child: Container(
+                                      color: const Color(0xFFE74C3C),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                // Fire image at progress end
+                                Positioned(
+                                  left: progressWidth - 30,
+                                  top: -8,
+                                  bottom: -8,
+                                  child: SizedBox(
+                                    width: 60,
+                                    height: 60,
+                                    child: Image.asset(
+                                      'assets/images/api.png',
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                                // Text centered
+                                Center(
+                                  child: Text(
+                                    '50/254',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
                     ],
                   ),
