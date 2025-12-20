@@ -192,8 +192,9 @@ class HomePage extends StatelessWidget {
                       LayoutBuilder(
                         builder: (context, constraints) {
                           final progressPercent = 50 / 254;
-                          final progressWidth = constraints.maxWidth * progressPercent;
-                          
+                          final progressWidth =
+                              constraints.maxWidth * progressPercent;
+
                           return Container(
                             height: 42,
                             decoration: BoxDecoration(
