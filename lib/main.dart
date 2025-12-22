@@ -196,7 +196,7 @@ class HomePage extends StatelessWidget {
                               constraints.maxWidth * progressPercent;
 
                           return Container(
-                            height: 42,
+                            height: 40,
                             decoration: BoxDecoration(
                               color: Colors.white.withValues(alpha: 0.3),
                               borderRadius: BorderRadius.circular(21),
@@ -216,12 +216,12 @@ class HomePage extends StatelessWidget {
                                 ),
                                 // Fire image at progress end
                                 Positioned(
-                                  left: progressWidth - 30,
-                                  top: -8,
-                                  bottom: -8,
+                                  left: progressWidth - 50,
+                                  top: -5,
+                                  bottom: -10,
                                   child: SizedBox(
-                                    width: 60,
-                                    height: 60,
+                                    width: 80,
+                                    height: 80,
                                     child: Image.asset(
                                       'assets/images/api.png',
                                       fit: BoxFit.contain,
