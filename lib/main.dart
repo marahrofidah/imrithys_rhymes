@@ -328,7 +328,7 @@ class ActivityCard extends StatelessWidget {
     required this.imagePath,
     required this.title,
   });
-  // color
+
   @override
   Widget build(BuildContext context) {
     return Container(
