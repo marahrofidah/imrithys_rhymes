@@ -336,6 +336,7 @@ class ActivityCard extends StatelessWidget {
         color: backgroundColor,
         borderRadius: BorderRadius.circular(32),
       ),
+      // deym
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
